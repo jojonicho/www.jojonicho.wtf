@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Typed from "react-typed"
 import SVG from "../components/SVG"
 import Rotate from 'react-reveal/Rotate';
@@ -43,13 +43,12 @@ const MangaRank = () => {
         Current Reading List
           </p>
       <Fade bottom cascade>
-
         <div className="tile">
           {mangas && mangas.map(manga => {
             return (
               <div className="card box is-marginless">
                 <div className="card-image is-marginless">
-                  <figure class="image">
+                  <figure className="image">
                     <img className="is-marginless" src={manga.node.coverImage.large} alt={manga.node.title.romaji} />
                   </figure>
                 </div>
@@ -72,48 +71,61 @@ const IndexPage = () => {
     'GraphQL',
   ]
   const [count, setCount] = useState(0);
+  const [active, setActive] = useState('false');
   return (
-    <div className="container">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-      <SEO title="Jonathan Nicholas" />
-      <div className="section columns">
-        <div className="column">
-          <p className="subtitle"> hello, my name is </p>
-          <p className="title is-2">Jonathan Nicholas</p>
-          <p className="subtitle is-4">I am currently learning</p>
-          <p id="learn" class="title is-1">
-            <Typed
-              strings={mylist}
-              typeSpeed={25}
-              backSpeed={40}
-              backDelay={850}
-              onLastStringBackspaced={() => {
-                setCount(curr => (curr < 3) ? curr + 1 : 0)
-              }}
-              loop
-            />
-          </p>
-        </div>
+    <>
+      <nav className="navbar" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <div className="box is-shadowless">
+            <Link to="/">
+              <SVG name="Mylogo" />
+            </Link>
+          </div>
 
-        <div className='column'>
-          <Rotate>
-            <Pulse duration={2000}>
-              <Rotate spy={count}>
-                <Pulse spy={count} duration={1700}>
-                  <SVG name={mylist[count]} />
-                </Pulse>
-              </Rotate>
-            </Pulse>
-          </Rotate>
+          <Link role="button" onClick={() => setActive(!active)} className={`navbar-burger ${(active === false) ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </Link>
         </div>
+      </nav>
+      <div className="container">
+        <SEO title="Jonathan Nicholas" />
+        <div className="section columns">
+          <div className="column">
+            <p className="subtitle"> hello, my name is </p>
+            <p className="title is-2">Jonathan Nicholas</p>
+            <p className="subtitle is-4">I am currently learning</p>
+            <p id="learn" className="title is-1">
+              <Typed
+                strings={mylist}
+                typeSpeed={25}
+                backSpeed={40}
+                backDelay={850}
+                onLastStringBackspaced={() => {
+                  setCount(curr => (curr < 3) ? curr + 1 : 0)
+                }}
+                loop
+              />
+            </p>
+          </div>
 
+          <div className='column'>
+            <Rotate>
+              <Pulse duration={2000}>
+                <Rotate spy={count}>
+                  <Pulse spy={count} duration={1700}>
+                    <SVG name={mylist[count]} />
+                  </Pulse>
+                </Rotate>
+              </Pulse>
+            </Rotate>
+          </div>
+
+        </div>
+        <MangaRank />
       </div>
-      <MangaRank />
-    </div>
+    </>
   )
 }
 
