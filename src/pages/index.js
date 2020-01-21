@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import React, { useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import Typed from "react-typed"
 import SVG from "../components/SVG"
 import Rotate from 'react-reveal/Rotate';
@@ -39,7 +39,6 @@ const MangaRank = () => {
   const mangas = data.anilist.User.favourites.manga.edges
   return (
     <div className="section">
-      <SEO title="Manga Ranking" />
       <div className="card">
         <p className="title is-3 box is-shadowless is-marginless">
           Current Reading List
@@ -70,7 +69,7 @@ const IndexPage = () => {
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
-      <SEO title="Home" />
+      <SEO title="Jonathan Nicholas" />
       <div className="section columns">
         <div className="column">
           <p className="subtitle"> hello, my name is </p>
