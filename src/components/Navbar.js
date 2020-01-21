@@ -1,4 +1,5 @@
-import React, { useState, Link } from "react"
+import React, { useState } from "react"
+import { Link } from "gatsby"
 import "../pages/style.scss"
 import SVG from "./SVG"
 
@@ -11,13 +12,13 @@ const NavBar = () => {
                     <Link to="/">
                         <SVG name="Mylogo" />
                     </Link>
-                    <Link role="button" onClick={() => setActive(!active)} className={`navbar-burger ${(active === false) ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true" />
-                        <span aria-hidden="true" />
-                        <span aria-hidden="true" />
+                    <Link role="button" onClick={() => setActive(!active)} className={`navbar-burger ${(active === false) ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
                     </Link>
                 </div>
-                <div id="navbarBasicExample" className={`navbar-menu ${(active === false) ? 'is-active' : ''}`}>
+                <div className={`navbar-menu ${(active === false) ? 'is-active' : ''}`}>
                     <div className="navbar-end">
                         <Link to="/blog" className="navbar-item">Blog</Link>
                     </div>
