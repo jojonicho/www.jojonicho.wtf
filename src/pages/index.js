@@ -23,7 +23,7 @@ const MangaRank = () => {
                     romaji
                   }
                   coverImage {
-                    medium
+                    large
                   }
                   genres
                   meanScore
@@ -39,17 +39,21 @@ const MangaRank = () => {
   const mangas = data.anilist.User.favourites.manga.edges
   return (
     <div className="section">
-      <div className="card">
-        <p className="title is-3 box is-shadowless is-marginless">
-          Current Reading List
+      <p className="title is-3 box is-shadowless is-marginless">
+        Current Reading List
           </p>
-        <div className="card-content">
-          <p className="subtitle is-5">
-            {mangas && mangas.map(manga => {
-              return <Fade top cascade>{manga.node.title.romaji}</Fade>
-            })}
-          </p>
-        </div>
+      <div className="tile">
+        {mangas && mangas.map(manga => {
+          return (
+            <div className="card box is-marginless">
+              <div className="card-image is-marginless">
+                <figure class="image">
+                  <img className="is-marginless" src={manga.node.coverImage.large} alt={manga.node.title.romaji} />
+                </figure>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   )
