@@ -5,6 +5,7 @@ import SVG from "../components/SVG"
 import Rotate from 'react-reveal/Rotate';
 import Pulse from 'react-reveal/Pulse';
 import Fade from 'react-reveal/Fade';
+import Nav from "../components/Navbar"
 import "./style.scss"
 import SEO from "../components/seo"
 
@@ -74,21 +75,27 @@ const IndexPage = () => {
   const [active, setActive] = useState('false');
   return (
     <>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <div className="box is-shadowless">
+      <div className="box is-shadowless">
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+          <div className="navbar-brand">
+            {/* <div className="box is-shadowless"> */}
             <Link to="/">
               <SVG name="Mylogo" />
             </Link>
+            {/* </div> */}
+            <Link role="button" onClick={() => setActive(!active)} className={`navbar-burger ${(active === false) ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </Link>
           </div>
-
-          <Link role="button" onClick={() => setActive(!active)} className={`navbar-burger ${(active === false) ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </Link>
-        </div>
-      </nav>
+          <div className={`navbar-menu ${(active === false) ? 'is-active' : ''}`}>
+            <div className="navbar-end">
+              <Link to="/blog" className="navbar-item">Blog</Link>
+            </div>
+          </div>
+        </nav>
+      </div>
       <div className="container">
         <SEO title="Jonathan Nicholas" />
         <div className="section columns">
