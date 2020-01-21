@@ -1,21 +1,112 @@
-import React from "react"
-import { Link } from "gatsby"
-
-import Layout from "../components/layout"
-import Image from "../components/image"
+import React, { useState, useEffect } from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import Typed from "react-typed"
+import SVG from "../components/SVG"
+import Rotate from 'react-reveal/Rotate';
+import Pulse from 'react-reveal/Pulse';
+import Fade from 'react-reveal/Fade';
+import "./style.scss"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+const MangaRank = () => {
+  const data = useStaticQuery(graphql`
+  query MangaQuery {
+      anilist {
+        User(name: "jojonicho") {
+          favourites {
+            manga {
+              edges {
+                node {
+                  title {
+                    english
+                    native
+                    romaji
+                  }
+                  coverImage {
+                    medium
+                  }
+                  genres
+                  meanScore
+                }
+              }
+            }
+          }
+        }
+      }
+    }      
+
+  `)
+  const mangas = data.anilist.User.favourites.manga.edges
+  return (
+    <div className="section">
+      <SEO title="Manga Ranking" />
+      <div className="card">
+        <p className="title is-3 box is-shadowless is-marginless">
+          Current Reading List
+          </p>
+        <div className="card-content">
+          {mangas && mangas.map(manga => {
+            return <p className="subtitle is-5"><Fade top cascade>{manga.node.title.romaji}</Fade></p>
+          })}
+        </div>
+      </div>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+  )
+}
+
+
+const IndexPage = () => {
+  const mylist = [
+    'React',
+    'Gatsby',
+    'Data',
+    'GraphQL',
+  ]
+  const [count, setCount] = useState(0);
+  return (
+    <div className="container">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      <SEO title="Home" />
+      <div className="section columns">
+        <div className="column">
+          <p className="subtitle"> hello, my name is </p>
+          <p className="title is-2">Jonathan Nicholas</p>
+          <p className="subtitle is-4">I am currently learning</p>
+          <p id="learn" class="title is-1">
+            <Typed
+              strings={mylist}
+              typeSpeed={25}
+              backSpeed={40}
+              backDelay={850}
+              onLastStringBackspaced={() => {
+                setCount(curr => (curr < 3) ? curr + 1 : 0)
+              }}
+              loop
+            />
+          </p>
+        </div>
+
+        <div className='column'>
+          <Rotate>
+            <Pulse duration={2000}>
+              <Rotate spy={count}>
+                <Pulse spy={count} duration={1700}>
+                  <SVG name={mylist[count]} />
+                </Pulse>
+              </Rotate>
+            </Pulse>
+          </Rotate>
+        </div>
+
+      </div>
+      <MangaRank />
+    </div>
+  )
+}
+
 
 export default IndexPage
