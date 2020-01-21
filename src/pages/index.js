@@ -42,19 +42,23 @@ const MangaRank = () => {
       <p className="title is-3 box is-shadowless is-marginless">
         Current Reading List
           </p>
-      <div className="tile">
-        {mangas && mangas.map(manga => {
-          return (
-            <div className="card box is-marginless">
-              <div className="card-image is-marginless">
-                <figure class="image">
-                  <img className="is-marginless" src={manga.node.coverImage.large} alt={manga.node.title.romaji} />
-                </figure>
+      <Fade bottom cascade>
+
+        <div className="tile">
+          {mangas && mangas.map(manga => {
+            return (
+              <div className="card box is-marginless">
+                <div className="card-image is-marginless">
+                  <figure class="image">
+                    <img className="is-marginless" src={manga.node.coverImage.large} alt={manga.node.title.romaji} />
+                  </figure>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      </Fade>
+
     </div>
   )
 }
