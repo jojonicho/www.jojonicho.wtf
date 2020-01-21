@@ -44,9 +44,11 @@ const MangaRank = () => {
           Current Reading List
           </p>
         <div className="card-content">
-          {mangas && mangas.map(manga => {
-            return <p className="subtitle is-5"><Fade top cascade>{manga.node.title.romaji}</Fade></p>
-          })}
+          <p className="subtitle is-5">
+            {mangas && mangas.map(manga => {
+              return <Fade top cascade>{manga.node.title.romaji}</Fade>
+            })}
+          </p>
         </div>
       </div>
     </div>
