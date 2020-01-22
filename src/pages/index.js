@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Typed from "react-typed"
 import SVG from "../components/SVG"
 import Rotate from 'react-reveal/Rotate';
@@ -58,7 +58,6 @@ const MangaRank = () => {
           })}
         </div>
       </Fade>
-
     </div>
   )
 }
@@ -71,13 +70,13 @@ const IndexPage = () => {
     'Data',
     'GraphQL',
   ]
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(-1);
   return (
     <>
       <Nav />
       <div className="container">
         <SEO title="Jonathan Nicholas" />
-        <div className="section columns">
+        <div className="box is-shadowless columns">
           <div className="column">
             <p className="subtitle"> hello, my name is </p>
             <p className="title is-2">Jonathan Nicholas</p>
@@ -85,10 +84,10 @@ const IndexPage = () => {
             <p id="learn" className="title is-1">
               <Typed
                 strings={mylist}
-                typeSpeed={25}
+                typeSpeed={150}
                 backSpeed={40}
-                backDelay={850}
-                onLastStringBackspaced={() => {
+                backDelay={1600}
+                preStringTyped={() => {
                   setCount(curr => (curr < 3) ? curr + 1 : 0)
                 }}
                 loop
@@ -98,13 +97,13 @@ const IndexPage = () => {
 
           <div className='column'>
             <Rotate>
-              <Pulse duration={2000}>
+              <Fade top distance="850px" duration={2000}>
                 <Rotate spy={count}>
                   <Pulse spy={count} duration={1700}>
                     <SVG name={mylist[count]} />
                   </Pulse>
                 </Rotate>
-              </Pulse>
+              </Fade>
             </Rotate>
           </div>
 
