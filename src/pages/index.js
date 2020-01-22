@@ -43,7 +43,7 @@ const MangaRank = () => {
       <p className="title is-3 box is-shadowless is-marginless">
         Current Reading List
           </p>
-      <Fade bottom cascade>
+      <Fade bottom cascade duration={1800}>
         <div className="tile">
           {mangas && mangas.map(manga => {
             return (
@@ -70,7 +70,7 @@ const IndexPage = () => {
     'Data',
     'GraphQL',
   ]
-  const [count, setCount] = useState(-1);
+  const [count, setCount] = useState(4);
   return (
     <>
       <Nav />
@@ -96,17 +96,12 @@ const IndexPage = () => {
           </div>
 
           <div className='column'>
-            <Rotate>
-              <Fade top distance="850px" duration={2000}>
                 <Rotate spy={count}>
                   <Pulse spy={count} duration={1700}>
                     <SVG name={mylist[count]} />
                   </Pulse>
                 </Rotate>
-              </Fade>
-            </Rotate>
           </div>
-
         </div>
         <MangaRank />
       </div>
