@@ -7,7 +7,7 @@ import SVG from "./SVG"
 const NavBar = () => {
     const [active, setActive] = useState('false');
     return (
-        <nav className="navbar is-spaced" role="navigation" aria-label="main navigation">
+        <nav className="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <Link to="/">
                     <SVG name="Mylogo" />
