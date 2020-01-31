@@ -20,7 +20,7 @@ const NavBar = () => {
             </div>
             <Fade top distance='15px' duration={600}>
                 <div className={`navbar-menu ${(active === false) ? 'is-active' : ''}`}>
-                    <div className="navbar-end">
+                    <div className="navbar-end is-one-quarter">
                         <Link to="/blog" className="navbar-item is-narrow">
                             <p>Blog</p>
                         </Link>

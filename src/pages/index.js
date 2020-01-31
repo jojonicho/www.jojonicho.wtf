@@ -70,12 +70,16 @@ const IndexPage = () => {
     'Data',
     'GraphQL',
   ]
+  const stories = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+  ]
   const [count, setCount] = useState(4);
   return (
     <>
       <Nav />
       <div className="container">
         <SEO title="Jonathan Nicholas" />
+        <SEO title="jojonicho" />
         <div className="box is-shadowless columns">
           <div className="column">
             <p className="subtitle"> hello, my name is </p>
@@ -96,14 +100,38 @@ const IndexPage = () => {
           </div>
 
           <div className='column'>
-                <Rotate spy={count}>
-                  <Pulse spy={count} duration={1700}>
-                    <SVG name={mylist[count]} />
-                  </Pulse>
-                </Rotate>
+            <Rotate spy={count}>
+              <Pulse spy={count} duration={1700}>
+                <SVG name={mylist[count]} />
+              </Pulse>
+            </Rotate>
           </div>
         </div>
         <MangaRank />
+        <Fade bottom cascade duration={1800}>
+          <div className="container">
+            <p className="title is-3 box is-shadowless is-marginless">
+              Pepew Story
+          </p>
+            <div className="columns is-desktop">
+              {stories.map(story => {
+                return (
+                  <div className="column">
+                    <div className="card">
+                      <div className="card-content">
+                        <a href={`http://story${story}.jojonicho.wtf`}>
+                          <div className="content">
+                            <p className="title is-5 has-text-centered">{story}</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Fade>
       </div>
     </>
   )

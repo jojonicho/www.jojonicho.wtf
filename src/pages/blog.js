@@ -12,7 +12,7 @@ const Bloglist = () => {
             <div className="columns">
                 <div className="column">
                     <div className="card">
-                        <div className="card-content is-marginless">
+                        <div className="card-content">
                             <div className="content">
                                 <div className="columns">
                                     <div className="column">
