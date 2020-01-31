@@ -34,6 +34,10 @@ $input-shadow: none;
     }
 }
 
+.welcome {
+    min-height: 80vh;
+}
+
 // Import the rest of Bulma
 
 @import "~bulma/bulma.sass";

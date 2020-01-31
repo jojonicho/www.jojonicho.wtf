@@ -80,7 +80,7 @@ const IndexPage = () => {
       <div className="container">
         <SEO title="Jonathan Nicholas" />
         <SEO title="jojonicho" />
-        <div className="box is-shadowless columns">
+        <div className="box is-shadowless columns welcome">
           <div className="column">
             <p className="subtitle"> hello, my name is </p>
             <p className="title is-2">Jonathan Nicholas</p>
