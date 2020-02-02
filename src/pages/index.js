@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Typed from "react-typed"
 import SVG from "../components/SVG"
 import Rotate from 'react-reveal/Rotate';
 import Pulse from 'react-reveal/Pulse';
 import Fade from 'react-reveal/Fade';
-import Nav from "../components/Navbar"
+import Navbar from "../components/Navbar"
 import "./style.scss"
 import SEO from "../components/seo"
 
@@ -76,7 +76,7 @@ const IndexPage = () => {
   const [count, setCount] = useState(4);
   return (
     <>
-      <Nav />
+      <Navbar />
       <div className="container">
         <SEO title="Jonathan Nicholas" />
         <SEO title="jojonicho" />
@@ -119,11 +119,11 @@ const IndexPage = () => {
                   <div className="column">
                     <div className="card">
                       <div className="card-content">
-                        <a href={`http://story${story}.jojonicho.wtf`}>
+                        <Link to={`story${story}`}>
                           <div className="content">
                             <p className="title is-5 has-text-centered">{story}</p>
                           </div>
-                        </a>
+                          </Link>
                       </div>
                     </div>
                   </div>

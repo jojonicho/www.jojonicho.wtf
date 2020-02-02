@@ -4,7 +4,7 @@ import "../pages/style.scss"
 import Fade from 'react-reveal/Fade';
 import SVG from "./SVG"
 
-const NavBar = () => {
+const Navbar = () => {
     const [active, setActive] = useState('false');
     return (
         <nav className="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
@@ -31,4 +31,4 @@ const NavBar = () => {
     );
 }
 
-export default NavBar
+export default Navbar

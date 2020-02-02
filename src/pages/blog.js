@@ -2,13 +2,13 @@ import React from "react"
 import Typed from "react-typed"
 
 import "./style.scss"
-import Nav from "../components/Navbar"
+import Navbar from "../components/Navbar"
 import SVG from "../components/SVG"
 
 const Bloglist = () => {
     return (
         <>
-            <Nav />
+            <Navbar />
             <div className="columns">
                 <div className="column">
                     <div className="card">

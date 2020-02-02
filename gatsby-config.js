@@ -5,6 +5,8 @@ module.exports = {
     author: `@jojonicho`,
   },
   plugins: [
+    `gatsby-transformer-sharp`, 
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
