@@ -17,4 +17,4 @@ heroku:
   stage: deploy
   script:
     - gem install dpl
-    - dpl --provider=heroku --app=jojonicho --api-key=$HEROKU_APIKEY
+    - dpl --provider=heroku --app=jojonicho --api-key=$HEROKU_API_KEY
