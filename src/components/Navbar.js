@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import "../pages/style.scss"
-import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 import SVG from "./SVG"
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
                     <span aria-hidden="true"></span>
                 </Link>
             </div>
-            <Fade top distance='15px' duration={600}>
+            <Slide top distance='15px' duration={600}>
                 <div className={`navbar-menu ${(active === false) ? 'is-active' : ''}`}>
                     <div className="navbar-end is-one-quarter">
                         <Link to="/blog" className="navbar-item is-narrow">
@@ -26,7 +26,7 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </div>
-            </Fade>
+            </Slide>
         </nav>
     );
 }
