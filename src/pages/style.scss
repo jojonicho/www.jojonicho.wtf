@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 // Set your brand colors
+$red: #EC6161;
 $yellow: #fed83e;
 $purple: #8A4D76;
 $pink: #FA7C91;
@@ -34,10 +35,34 @@ $input-shadow: none;
     }
 }
 
+.proj{
+    border: 2px solid red;
+}
 .welcome {
     min-height: 80vh;
 }
 
+.home {
+    position: relative;
+    top: 3vh;
+    left: 3vw;
+}
+
+.me img {
+    width: 35vw;
+    border-radius: 50%;
+    max-width: 350px;
+}   
+
+// .story3 {
+//     padding: 45vw;
+// }
+
+.myname {
+    color: black;
+    font-weight: bold;
+    font-size: calc(4vw + 20px);
+}
 // Import the rest of Bulma
 
 @import "~bulma/bulma.sass";
