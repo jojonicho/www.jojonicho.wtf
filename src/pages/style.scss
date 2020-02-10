@@ -28,6 +28,11 @@ $input-shadow: none;
 // $navbar-padding-horizontal: 2rem;
 // $navbar-padding-vertical: 3rem;
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .navbar {
 &.is-transparent {
     background-color: transparent;
