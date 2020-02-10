@@ -45,7 +45,7 @@ const Story3 = () => {
                 <div className="columns is-7 is-mobile is-vcentered">
                     <div className="column is-one-fourth me">
                         <div class="card-image">
-                            <figure class="image is-4by3">
+                            <figure class="image is-3by3">
                                 <img src={"/jonathan.jpg"} alt="jonathan" />
                             </figure>
                         </div>

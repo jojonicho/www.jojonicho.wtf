@@ -54,7 +54,6 @@ html, body {
 }
 
 .me img {
-    width: 35vw;
     border-radius: 50%;
     max-width: 350px;
 }   
@@ -62,6 +61,16 @@ html, body {
 // .story3 {
 //     padding: 45vw;
 // }
+
+.achievement{
+    font-size: calc(2.5vw + 1px);
+}
+.desc{
+    font-size: calc(2vw + 1px);
+}
+.name{
+    font-size: calc(4vw + 1px);
+}
 
 .myname {
     color: black;
