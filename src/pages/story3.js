@@ -4,6 +4,9 @@ import "./style.scss"
 import SEO from "../components/seo"
 import Slide from 'react-reveal/Slide';
 import SVG from "../components/SVG"
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import Modal from 'react-modal';
 
 export const Navbar = () => {
     const [active, setActive] = useState('false');
@@ -35,6 +38,24 @@ export const Navbar = () => {
 }
 
 const Story3 = () => {
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)'
+        }
+    };
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
 
     return (
         <>
@@ -59,12 +80,46 @@ const Story3 = () => {
             <div>
                 <SVG name='blob' />
             </div>
-            <div className="section container">
-                <p className="title has-text-centered">My Projects</p>
-                <div className="container proj">
-                    <img src={"/myproj.png"} alt="myproj" />
-                </div>
+            <div className='section container'>
+                <button onClick={openModal}>
+                    <div className="container proj">
+                        <img src={"/myproj.png"} alt="myproj" />
+                    </div>
+                </button>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <div className="section container">
+                        <p className="title has-text-centered">My Projects</p>
+                        <Carousel autoPlay={true} useKeyboardArrows={true} infiniteLoop={true}>
+                            <div className="container proj">
+                                <img src={"/myproj.png"} alt="myproj" />
+                            </div>
+                            <div className="container proj">
+                                <img src={"/pikap.png"} alt="myproj" />
+                            </div>
+                        </Carousel>
+                    </div>
+                </Modal>
             </div>
+
+            {/* <div className="section container">
+                <p className="title has-text-centered">My Projects</p>
+                <Carousel>
+                    <div className="container proj">
+                        <img src={"/myproj.png"} alt="myproj" />
+                    </div>
+                    <div className="container proj">
+                        <img src={"/myproj.png"} alt="myproj" />
+                    </div>
+                    <div className="container proj">
+                        <img src={"/myproj.png"} alt="myproj" />
+                    </div>
+                </Carousel>
+            </div> */}
             <div className='section'>
                 <p className="title has-text-centered">Interested?<br />Check out my</p>
                 <Link to='/cv'>
