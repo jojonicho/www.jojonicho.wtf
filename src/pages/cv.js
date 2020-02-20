@@ -30,8 +30,8 @@ const cv = () => {
                                     <p className="has-text-danger">Data Science SIG</p>
                                 </div>
                                 <div className="card-content has-text-left desc has-text-weight-semibold">
-                                    BEM PTI
-                                    <p className="has-text-danger">Semoga</p>
+                                    BEM Fasilkom UI
+                                    <p className="has-text-danger">PTI</p>
                                 </div>
                             </div>
                         </div>
